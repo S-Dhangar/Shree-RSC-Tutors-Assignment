@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Firstpage from './Firstpage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Secondpage from './Secondpage';
+ 
 function App() {
+  const style = {
+    padding:"60px",
+    background: "linear-gradient(to right, #74ebd5, #ACB6E5)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    overflow: 'hidden',
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={style}>
+     <Router>
+      <Routes>
+        <Route path="/" element={ <Firstpage/>} />
+        <Route path="/second" element={<Secondpage />} />
+
+      </Routes>
+    </Router>
     </div>
   );
 }
